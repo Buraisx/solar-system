@@ -3,7 +3,11 @@ class System
 		@bodies = []
 	end
 	def add(celestials)
-		@bodies << celestials
+		if !@bodies.include?(celestials)
+			@bodies << celestials
+		else
+			puts "This planet already exists."
+		end
 	end
 	def total_mass
 		total = 0
@@ -23,6 +27,7 @@ class Body
 	def mass
 		@mass
 	end
+
 end
 
 class Planet < Body
@@ -31,6 +36,7 @@ class Planet < Body
 		@day = day	
 		@year = year
 	end
+
 end
 
 class Star < Body
@@ -55,6 +61,7 @@ moon = Moon.new("moon", 10, 30, earth)
 cybertron = Planet.new("Cybertron",10, 15, 32131)
 genesis = Planet.new("Genesis",20,20,21321)
 
+imaginary.add(earth)
 imaginary.add(earth)
 imaginary.add(sun)
 imaginary.add(moon)
